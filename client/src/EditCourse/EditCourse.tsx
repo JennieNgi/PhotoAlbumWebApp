@@ -15,12 +15,12 @@ const EditCourse = ({courses,onResponse,onError,RETREIVE_SCRIPT,setLoading}:Edit
 
     let course:(Course | undefined) = courses.find(item => item._id === id);
 
-    const PUT_SCRIPT_COURSES:string = "http://localhost/editCourse";
-    const PUT_SCRIPT_PULL:string = "http://localhost/pullTechnologyCourse";
-    const PUT_SCRIPT_PUSH:string = "http://localhost/pushTechnologyCourse";
-    // const PUT_SCRIPT_COURSES:string = "/editCourse";
-    // const PUT_SCRIPT_PULL:string = "/pullTechnologyCourse";
-    // const PUT_SCRIPT_PUSH:string = "/pushTechnologyCourse";
+    // const PUT_SCRIPT_COURSES:string = "http://localhost/editCourse";
+    // const PUT_SCRIPT_PULL:string = "http://localhost/pullTechnologyCourse";
+    // const PUT_SCRIPT_PUSH:string = "http://localhost/pushTechnologyCourse";
+    const PUT_SCRIPT_COURSES:string = "/editCourse";
+    const PUT_SCRIPT_PULL:string = "/pullTechnologyCourse";
+    const PUT_SCRIPT_PUSH:string = "/pushTechnologyCourse";
 
     const [courseName, setCourseName] = React.useState(course != undefined ? course.name : "");
 

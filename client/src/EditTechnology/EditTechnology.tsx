@@ -12,8 +12,8 @@ const EditTechnology = ({courses,technologies,onResponse,onError,RETREIVE_SCRIPT
 
     let technology:(Technology | undefined) = technologies.find(item => item._id === id);
 
-    const EDIT_SCRIPT_TECHNOLOGIES:string = "http://localhost/editTechnology";
-    //const EDIT_SCRIPT_TECHNOLOGIES:string = "/editTechnology";
+    //const EDIT_SCRIPT_TECHNOLOGIES:string = "http://localhost/editTechnology";
+    const EDIT_SCRIPT_TECHNOLOGIES:string = "/editTechnology";
 
     let courseList:TechCourse[] = technology != undefined ? technology.courses : [];
 

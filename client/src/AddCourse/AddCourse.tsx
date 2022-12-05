@@ -14,8 +14,8 @@ const AddCourse = ({courses,onResponse,onError,RETREIVE_SCRIPT,setLoading}:EditC
         navigate(path);
     }
 
-    const ADD_SCRIPT_COURSES:string = "http://localhost/addCourse";
-    //const ADD_SCRIPT_COURSES:string = "/addCourse";
+    //const ADD_SCRIPT_COURSES:string = "http://localhost/addCourse";
+    const ADD_SCRIPT_COURSES:string = "/addCourse";
 
 
     const [courseName, setCourseName] = React.useState("");

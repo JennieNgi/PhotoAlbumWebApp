@@ -11,32 +11,38 @@ const List = ({technologies, courses}:ListComponentProps) => {
 
                 <div className="flex flex-row">
                     <div>
-                        <div className="pb-3">Technologies</div>
-                        <Link to={`/addTechnology`}><i className="fas fa-plus content__button pr-2 text-xl hover:text-accent"></i></Link>
+                        <div className="pb-3 text-green-500 font-bold">Technologies</div>
+                        <div className="ml-8 pl-2.5 py-2 border-l-4 border-solid border-green-500 text-gray-600">
+                            <Link to={`/addTechnology`}><i className="fas fa-plus content__button pr-2 pb-2 text-xl hover:text-accent"></i></Link>
 
-                        {technologies.map((data:Technology, n:number)=>
+                            {technologies.map((data:Technology, n:number)=>
 
-                            <div key={n} className="ml-8 pl-2.5 py-0.5 border-l-4 border-solid border-accent flex flex-row flex-nowrap">
-                                {/* <a href="http://www.seanmorrow.ca" className="text-accent font-bold hover:underline">{data.name}</a> */}
-                                <Link to={`/editTechnology/${data._id}`}><i className="fas fa-pencil content__button pr-2 text-xl hover:text-accent"></i></Link>
-                                <Link to={`/deleteTechnology/${data._id}`}><i className="fas fa-trash content__button pr-2 text-xl hover:text-accent"></i></Link>
-                                <div className="text-accent font-bold">{data.name}</div>
-                            </div>
-                        )}
+                                <div key={n} className="pb-2 flex flex-row flex-nowrap">
+                                    {/* <a href="http://www.seanmorrow.ca" className="text-accent font-bold hover:underline">{data.name}</a> */}
+                                    <Link to={`/editTechnology/${data._id}`}><i className="fas fa-pencil content__button pr-2 text-xl hover:text-accent"></i></Link>
+                                    <Link to={`/deleteTechnology/${data._id}`}><i className="fas fa-trash content__button pr-2 text-xl hover:text-accent"></i></Link>
+                                    <div className="text-accent font-bold">{data.name}</div>
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     <div>
-                        <div className="pb-3">Courses</div>
+                        <div className="pb-3 text-green-500 font-bold">Courses</div>
 
-                        <Link to={`/addCourse`}><i className="fas fa-plus content__button pr-2 text-xl hover:text-accent"></i></Link>
+                        <div className="ml-8 pl-2.5 py-2 border-l-4 border-solid border-green-500 text-gray-600">
 
-                        {courses.map((data:Course, n:number)=>
-                            <div key={n} className="ml-8 pl-2.5 py-0.5 border-l-4 border-solid border-accent flex flex-row flex-nowrap">
-                                <Link to={`/editCourse/${data._id}`}><i className="fas fa-pencil content__button pr-2 text-xl hover:text-accent"></i></Link>
-                                <Link to={`/deleteCourse/${data._id}`}><i className="fas fa-trash content__button pr-2 text-xl hover:text-accent"></i></Link>
-                                <div className="text-accent font-bold">{data.code} {data.name}</div>
-                            </div>
-                        )}
+                            <Link to={`/addCourse`}><i className="fas fa-plus content__button pr-2 pb-2 text-xl hover:text-accent"></i></Link>
+
+                            {courses.map((data:Course, n:number)=>
+                                <div key={n} className="pb-2 flex flex-row flex-nowrap">
+                                    <Link to={`/editCourse/${data._id}`}><i className="fas fa-pencil content__button pr-2 text-xl hover:text-accent"></i></Link>
+                                    <Link to={`/deleteCourse/${data._id}`}><i className="fas fa-trash content__button pr-2 text-xl hover:text-accent"></i></Link>
+                                    <div className="text-accent font-bold">{data.code} {data.name}</div>
+                                </div>
+                            )}
+                        </div>
+
                     </div>
                 </div>
 

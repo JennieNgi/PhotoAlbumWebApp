@@ -11,8 +11,8 @@ const DeleteTechnology = ({technologies,onResponse,onError,RETREIVE_SCRIPT,setLo
 
     let technology:(Technology | undefined) = technologies.find(item => item._id === id);
 
-    const DELETE_SCRIPT_TECHNOLOGIES:string = "http://localhost/deleteTechnology";
-    //const DELETE_SCRIPT_TECHNOLOGIES:string = "/deleteTechnology";
+    //const DELETE_SCRIPT_TECHNOLOGIES:string = "http://localhost/deleteTechnology";
+    const DELETE_SCRIPT_TECHNOLOGIES:string = "/deleteTechnology";
 
     function onSubmitResponse(responseText:any) {
         getJSONData(RETREIVE_SCRIPT, onResponse, onError);
