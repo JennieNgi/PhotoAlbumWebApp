@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { EditTechnologyComponentProps, Course,TechCourse, Technology } from "./../Tools/data.model"
 import { getJSONData, sendJSONData} from "./../Tools/Toolkit";
 import { Link } from 'react-router-dom'; 
+import $ from 'jquery';
 
 
 const EditTechnology = ({courses,technologies,onResponse,onError,RETREIVE_SCRIPT,setLoading}:EditTechnologyComponentProps) => {
@@ -11,8 +12,8 @@ const EditTechnology = ({courses,technologies,onResponse,onError,RETREIVE_SCRIPT
 
     let technology:(Technology | undefined) = technologies.find(item => item._id === id);
 
-    //const EDIT_SCRIPT_TECHNOLOGIES:string = "http://localhost/editTechnology";
-    const EDIT_SCRIPT_TECHNOLOGIES:string = "/editTechnology";
+    const EDIT_SCRIPT_TECHNOLOGIES:string = "http://localhost/editTechnology";
+    //const EDIT_SCRIPT_TECHNOLOGIES:string = "/editTechnology";
 
     let courseList:TechCourse[] = technology != undefined ? technology.courses : [];
 
@@ -79,18 +80,23 @@ const EditTechnology = ({courses,technologies,onResponse,onError,RETREIVE_SCRIPT
         
         let sendString:string = JSON.stringify(sendJSON);        
         sendJSONData(EDIT_SCRIPT_TECHNOLOGIES, sendString, onSubmitResponse, onSubmitError, "PUT");
-}; 
+    }; 
+
+    $("[type='number']").keypress(function (e:any) {
+        e.preventDefault();
+    });
 
     // ---------------------------------- render to the DOM
     return(
         (technology !== undefined) ? 
         <div>
+            <div className="pb-3 text-green-500 font-bold">Edit Technology:</div>
             <div><label className="form__label" >Name:</label></div>
-            <div><input className="border-solid bg-gray-100" type="text" onChange={handleName} value={name}/></div>
+            <div><input className="border-solid bg-gray-100"  maxLength={100} type="text" onChange={handleName} value={name}/></div>
             <div><label className="form__label" >Description:</label></div>
-            <div><textarea className="border-solid bg-gray-100" rows={10} cols={40} onChange={handleDescription} value={description}/></div>
+            <div><textarea className="border-solid bg-gray-100" maxLength={200} rows={10} cols={40} onChange={handleDescription} value={description}/></div>
             <div><label className="form__label" >Difficulty:</label></div>
-            <div><input className="border-solid bg-gray-100" type="number" onChange={handleDifficulty} value={difficulty}/></div>
+            <div><input className="border-solid bg-gray-100" type="number" onChange={handleDifficulty} value={difficulty} maxLength={1} min="1" max="5" pattern='[1-5]*'/></div>
             <div className="mt-2">Used in Courses:</div>
             {courses.map((data:Course, n:number)=>
                 <div key={n} className="mt-2">
@@ -100,10 +106,10 @@ const EditTechnology = ({courses,technologies,onResponse,onError,RETREIVE_SCRIPT
             
             <div className="flex flex-row mt-3">
                 <div>
-                    <Link to={"/"}><button className={(name == "" || description == "") ? "bg-gray-100 border-0 mr-1 p-1 w-20" :"bg-red-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20"}onClick={onEdit} disabled={(name == "" || description == "") ? true : false}>Ok</button></Link>
+                    <Link to={"/"}><button className={(name == "" || description == "") ? "bg-gray-100 border-0 mr-1 p-1 w-20 rounded" :"bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20 rounded"}onClick={onEdit} disabled={(name == "" || description == "") ? true : false}>Ok</button></Link>
                 </div>
                 <div>
-                    <Link to={"/"}><button className="bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20">Cancel</button></Link>
+                    <Link to={"/"}><button className="bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20 rounded">Cancel</button></Link>
                 </div>
             </div>
 

@@ -14,8 +14,8 @@ const AddCourse = ({courses,onResponse,onError,RETREIVE_SCRIPT,setLoading}:EditC
         navigate(path);
     }
 
-    //const ADD_SCRIPT_COURSES:string = "http://localhost/addCourse";
-    const ADD_SCRIPT_COURSES:string = "/addCourse";
+    const ADD_SCRIPT_COURSES:string = "http://localhost/addCourse";
+    //const ADD_SCRIPT_COURSES:string = "/addCourse";
 
 
     const [courseName, setCourseName] = React.useState("");
@@ -60,15 +60,16 @@ const AddCourse = ({courses,onResponse,onError,RETREIVE_SCRIPT,setLoading}:EditC
     // ---------------------------------- render to the DOM
     return(
         <div>
+            <div className="pb-3 text-green-500 font-bold">Add New Course:</div>
             <div><label className="form__label" >Course Code:</label></div>
-            <div><input className="border-solid bg-gray-100" type="text" onChange={handleCourseCode} value={courseCode}/></div>
+            <div><input className="border-solid bg-gray-100" type="text" onChange={handleCourseCode} value={courseCode} maxLength={10}/></div>
             <div>{errorMessage}</div>
             <div><label className="form__label" >Course Name:</label></div>
-            <div><input className="border-solid bg-gray-100" type="text" onChange={handleCourseName} value={courseName}/></div>
+            <div><input className="border-solid bg-gray-100" type="text" onChange={handleCourseName} value={courseName} maxLength={100}/></div>
             <div className="flex flex-row mt-3">
-                <button className={courseName == "" ? "bg-gray-100 border-0 mr-1 p-1 w-20" : "bg-red-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20"} onClick={onAdd} disabled={courseName == "" ? true : false}>Ok</button>
+                <button className={courseName == "" ? "bg-gray-100 border-0 mr-1 p-1 w-20 rounded" : "bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20 rounded"} onClick={onAdd} disabled={courseName == "" ? true : false}>Ok</button>
                 <div>
-                    <Link to={"/"}><button className="bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20">Cancel</button></Link>
+                    <Link to={"/"}><button className="bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20 rounded">Cancel</button></Link>
                 </div>
             </div>
 

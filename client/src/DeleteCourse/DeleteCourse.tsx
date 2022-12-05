@@ -11,10 +11,10 @@ const DeleteCourse = ({courses,onResponse,onError,RETREIVE_SCRIPT,setLoading}:Ed
 
     let course:(Course | undefined) = courses.find(item => item._id === id);
 
-    // const DELETE_SCRIPT_COURSES:string = "http://localhost/deleteCourse";
-    // const DELETE_SCRIPT_TECHNOLOGIES:string = "http://localhost/deleteTechnologyCourse";
-    const DELETE_SCRIPT_COURSES:string = "/deleteCourse";
-    const DELETE_SCRIPT_TECHNOLOGIES:string = "/deleteTechnologyCourse";
+     const DELETE_SCRIPT_COURSES:string = "http://localhost/deleteCourse";
+     const DELETE_SCRIPT_TECHNOLOGIES:string = "http://localhost/deleteTechnologyCourse";
+    //const DELETE_SCRIPT_COURSES:string = "/deleteCourse";
+    //const DELETE_SCRIPT_TECHNOLOGIES:string = "/deleteTechnologyCourse";
 
     function onSubmitResponse(responseText:any) {
         getJSONData(RETREIVE_SCRIPT, onResponse, onError);
@@ -47,14 +47,14 @@ const DeleteCourse = ({courses,onResponse,onError,RETREIVE_SCRIPT,setLoading}:Ed
     return(
         (course !== undefined) ? 
         <div>
-            <h3>Are you sure you want to delete the follow course:</h3>
-            <div>{course.name}</div>
+            <h3 className="mb-2">Are you sure you want to delete the follow course:</h3>
+            <div className="mb-2">{course.name}</div>
             <div className="flex flex-row mt-3">
                 <div>
-                    <Link to={"/"}><button className="bg-red-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20" onClick={onDelete}>Ok</button></Link>
+                    <Link to={"/"}><button className="bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20 rounded" onClick={onDelete}>Ok</button></Link>
                 </div>
                 <div>
-                    <Link to={"/"}><button className="bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20">Cancel</button></Link>
+                    <Link to={"/"}><button className="bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20 rounded">Cancel</button></Link>
                 </div>
             </div>
 

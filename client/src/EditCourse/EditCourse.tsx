@@ -15,12 +15,12 @@ const EditCourse = ({courses,onResponse,onError,RETREIVE_SCRIPT,setLoading}:Edit
 
     let course:(Course | undefined) = courses.find(item => item._id === id);
 
-    // const PUT_SCRIPT_COURSES:string = "http://localhost/editCourse";
-    // const PUT_SCRIPT_PULL:string = "http://localhost/pullTechnologyCourse";
-    // const PUT_SCRIPT_PUSH:string = "http://localhost/pushTechnologyCourse";
-    const PUT_SCRIPT_COURSES:string = "/editCourse";
-    const PUT_SCRIPT_PULL:string = "/pullTechnologyCourse";
-    const PUT_SCRIPT_PUSH:string = "/pushTechnologyCourse";
+    const PUT_SCRIPT_COURSES:string = "http://localhost/editCourse";
+    const PUT_SCRIPT_PULL:string = "http://localhost/pullTechnologyCourse";
+    const PUT_SCRIPT_PUSH:string = "http://localhost/pushTechnologyCourse";
+    // const PUT_SCRIPT_COURSES:string = "/editCourse";
+    // const PUT_SCRIPT_PULL:string = "/pullTechnologyCourse";
+    // const PUT_SCRIPT_PUSH:string = "/pushTechnologyCourse";
 
     const [courseName, setCourseName] = React.useState(course != undefined ? course.name : "");
 
@@ -63,16 +63,17 @@ const EditCourse = ({courses,onResponse,onError,RETREIVE_SCRIPT,setLoading}:Edit
     return(
         (course !== undefined) ? 
         <div>
+            <div className="pb-3 text-green-500 font-bold">Edit Course:</div>
             <div><label className="form__label" >Course Code:</label></div>
             <div><input className="border-solid bg-gray-100 text-[#CCC]" type="text" value={course.code} disabled/></div>
             <div><label className="form__label" >Course Name:</label></div>
-            <div><input className="border-solid bg-gray-100" type="text" onChange={handleCourseName} value={courseName}/></div>
+            <div><input className="border-solid bg-gray-100" type="text" onChange={handleCourseName} value={courseName} maxLength={100}/></div>
             <div className="flex flex-row mt-3">
                 <div>
-                    <Link to={"/"}><button className={courseName == "" ? "bg-gray-100 border-0 mr-1 p-1 w-20" : "bg-red-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20"} onClick={onEdit} disabled={courseName == "" ? true : false}>Ok</button></Link>
+                    <Link to={"/"}><button className={courseName == "" ? "bg-gray-100 border-0 mr-1 p-1 w-20 rounded" : "bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20 rounded"} onClick={onEdit} disabled={courseName == "" ? true : false}>Ok</button></Link>
                 </div>
                 <div>
-                    <Link to={"/"}><button className="bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20">Cancel</button></Link>
+                    <Link to={"/"}><button className="bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20 rounded">Cancel</button></Link>
                 </div>
             </div>
 

@@ -11,8 +11,8 @@ const DeleteTechnology = ({technologies,onResponse,onError,RETREIVE_SCRIPT,setLo
 
     let technology:(Technology | undefined) = technologies.find(item => item._id === id);
 
-    //const DELETE_SCRIPT_TECHNOLOGIES:string = "http://localhost/deleteTechnology";
-    const DELETE_SCRIPT_TECHNOLOGIES:string = "/deleteTechnology";
+    const DELETE_SCRIPT_TECHNOLOGIES:string = "http://localhost/deleteTechnology";
+    //const DELETE_SCRIPT_TECHNOLOGIES:string = "/deleteTechnology";
 
     function onSubmitResponse(responseText:any) {
         getJSONData(RETREIVE_SCRIPT, onResponse, onError);
@@ -43,14 +43,14 @@ const DeleteTechnology = ({technologies,onResponse,onError,RETREIVE_SCRIPT,setLo
     return(
         (technology !== undefined) ? 
         <div>
-            <h3>Are you sure you want to delete the follow technology:</h3>
-            <div>{technology.name}</div>
+            <h3 className="mb-2">Are you sure you want to delete the follow technology:</h3>
+            <div className="mb-2">{technology.name}</div>
             <div className="flex flex-row mt-3">
                 <div>
-                    <Link to={"/"}><button className="bg-red-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20" onClick={onDelete}>Ok</button></Link>
+                    <Link to={"/"}><button className="bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20 rounded" onClick={onDelete}>Ok</button></Link>
                 </div>
                 <div>
-                    <Link to={"/"}><button className="bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20">Cancel</button></Link>
+                    <Link to={"/"}><button className="bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20 rounded">Cancel</button></Link>
                 </div>
             </div>
 

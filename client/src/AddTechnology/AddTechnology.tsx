@@ -3,12 +3,13 @@ import { useParams } from 'react-router-dom';
 import { EditCourseComponentProps, Course,TechCourse } from "./../Tools/data.model"
 import { getJSONData, sendJSONData} from "./../Tools/Toolkit";
 import { Link } from 'react-router-dom'; 
+import $ from 'jquery';
 
 
 const AddTechnology = ({courses,onResponse,onError,RETREIVE_SCRIPT,setLoading}:EditCourseComponentProps) => {
 
-    //const ADD_SCRIPT_TECHNOLOGIES:string = "http://localhost/addTechnology";
-    const ADD_SCRIPT_TECHNOLOGIES:string = "/addTechnology";
+    const ADD_SCRIPT_TECHNOLOGIES:string = "http://localhost/addTechnology";
+    //const ADD_SCRIPT_TECHNOLOGIES:string = "/addTechnology";
     let courseList:TechCourse[] = [];
 
     const [name, setName] = React.useState("");
@@ -69,17 +70,22 @@ const AddTechnology = ({courses,onResponse,onError,RETREIVE_SCRIPT,setLoading}:E
         let sendString:string = JSON.stringify(sendJSON);        
         sendJSONData(ADD_SCRIPT_TECHNOLOGIES, sendString, onSubmitResponse, onSubmitError, "POST");
 
-}; 
+    }; 
+
+    $("[type='number']").keypress(function (e:any) {
+        e.preventDefault();
+    });
 
     // ---------------------------------- render to the DOM
     return(
         <div>
+            <div className="pb-3 text-green-500 font-bold">Add New Technology:</div>
             <div><label className="form__label" >Name:</label></div>
-            <div><input className="border-solid bg-gray-100" type="text" onChange={handleName} value={name}/></div>
+            <div><input className="border-solid bg-gray-100" type="text" onChange={handleName} value={name} maxLength={100}/></div>
             <div><label className="form__label" >Description:</label></div>
-            <div><textarea className="border-solid bg-gray-100" rows={10} cols={40} onChange={handleDescription} value={description}/></div>
+            <div><textarea className="border-solid bg-gray-100" rows={10} cols={40} onChange={handleDescription} value={description} maxLength={200}/></div>
             <div><label className="form__label" >Difficulty:</label></div>
-            <div><input className="border-solid bg-gray-100" type="number" onChange={handleDifficulty} value={difficulty}/></div>
+            <div><input className="border-solid bg-gray-100" type="number" onChange={handleDifficulty} value={difficulty} min="1" max="5"/></div>
             <div className="mt-2">Used in Courses:</div>
             {courses.map((data:Course, n:number)=>
                 <div key={n} className="mt-2">
@@ -90,10 +96,10 @@ const AddTechnology = ({courses,onResponse,onError,RETREIVE_SCRIPT,setLoading}:E
 
             <div className="flex flex-row mt-3">
                 <div>
-                    <Link to={"/"}><button className={(name == "" || description == "") ? "bg-gray-100 border-0 mr-1 p-1 w-20" :"bg-red-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20"} onClick={onAdd} disabled={(name == "" || description == "") ? true : false}>Ok</button></Link>
+                    <Link to={"/"}><button className={(name == "" || description == "") ? "bg-gray-100 border-0 mr-1 p-1 w-20 rounded" :"bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20 rounded"} onClick={onAdd} disabled={(name == "" || description == "") ? true : false}>Ok</button></Link>
                 </div>
                 <div>
-                    <Link to={"/"}><button className="bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20">Cancel</button></Link>
+                    <Link to={"/"}><button className="bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20 rounded">Cancel</button></Link>
                 </div>
             </div>
 
