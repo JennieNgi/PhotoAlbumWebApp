@@ -63,7 +63,7 @@ app.post("/addCourse", async (request, response) => {
 
         if (codeExists !== null) {
             response.status(403);
-            response.send({error: "The course code already exist!"});
+            response.send({error: "duplicate"});
             mongoClient.close();
             return;
         }

@@ -60,7 +60,7 @@ const EditTechnology = ({courses,technologies,onResponse,onError,RETREIVE_SCRIPT
         setLoading(false);
     }
         
-    function onSubmitError() {
+    function onSubmitError(e:any) {
         console.log("Error - an issue occurrred with AJAX data transmission");
     }
 

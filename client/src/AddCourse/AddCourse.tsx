@@ -38,9 +38,13 @@ const AddCourse = ({courses,onResponse,onError,RETREIVE_SCRIPT,setLoading}:EditC
         setLoading(false);
     }
         
-    function onSubmitError() {
-        setError("The course code already exist!");
+    function onSubmitError(e:any) {
+        console.log(e);
+        if (e == 403){
+            setError("The course code already exist!");
+        };
         console.log("Error - an issue occurrred with AJAX data transmission");
+        setLoading(false);
     }
 
     const onAdd = (e:any) => {
@@ -63,11 +67,11 @@ const AddCourse = ({courses,onResponse,onError,RETREIVE_SCRIPT,setLoading}:EditC
             <div className="pb-3 text-green-500 font-bold">Add New Course:</div>
             <div><label className="form__label" >Course Code:</label></div>
             <div><input className="border-solid bg-gray-100" type="text" onChange={handleCourseCode} value={courseCode} maxLength={10}/></div>
-            <div>{errorMessage}</div>
+            <div className="text-red-500">{errorMessage}</div>
             <div><label className="form__label" >Course Name:</label></div>
             <div><input className="border-solid bg-gray-100" type="text" onChange={handleCourseName} value={courseName} maxLength={100}/></div>
             <div className="flex flex-row mt-3">
-                <button className={courseName == "" ? "bg-gray-100 border-0 mr-1 p-1 w-20 rounded" : "bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20 rounded"} onClick={onAdd} disabled={courseName == "" ? true : false}>Ok</button>
+                <button className={courseName == "" || courseCode == "" ? "bg-gray-100 border-0 mr-1 p-1 w-20 rounded" : "bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20 rounded"} onClick={onAdd} disabled={courseName == "" || courseCode == ""? true : false}>Ok</button>
                 <div>
                     <Link to={"/"}><button className="bg-green-500 text-[#FFF] border-0 mr-1 p-1 hover:opacity-50 w-20 rounded">Cancel</button></Link>
                 </div>

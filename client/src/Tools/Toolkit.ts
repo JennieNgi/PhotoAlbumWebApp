@@ -53,7 +53,7 @@ function sendJSONData(sendScript:string, jsonString:string, success:Function, fa
             // data retrieved - call success method and pass along XML object response
             success(xmlhttp.responseText);
         } else {
-            failure();
+            failure(xmlhttp.status);
         }
     });
     xmlhttp.addEventListener("error", (e:Event) => {

@@ -33,7 +33,7 @@ const EditCourse = ({courses,onResponse,onError,RETREIVE_SCRIPT,setLoading}:Edit
         setLoading(false);
     }
         
-    function onSubmitError() {
+    function onSubmitError(e:any) {
             console.log("Error - an issue occurrred with AJAX data transmission");
     }
 

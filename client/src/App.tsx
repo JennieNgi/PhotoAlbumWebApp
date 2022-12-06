@@ -36,7 +36,9 @@ function App() {
     setLoading(false);
   };
 
-  const onError = () => console.log("*** Error has occured during AJAX data transmission");
+  const onError = () => {
+    console.log("*** Error has occured during AJAX data transmission");
+  }
 
   // ---------------------------------------------- lifecycle hooks
   React.useEffect(() => {

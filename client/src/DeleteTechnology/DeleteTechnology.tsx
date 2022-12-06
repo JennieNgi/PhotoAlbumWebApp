@@ -19,7 +19,7 @@ const DeleteTechnology = ({technologies,onResponse,onError,RETREIVE_SCRIPT,setLo
         setLoading(false);
     }
         
-    function onSubmitError() {
+    function onSubmitError(e:any) {
             console.log("Error - an issue occurrred with AJAX data transmission");
     }
 
