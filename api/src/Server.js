@@ -35,6 +35,7 @@ app.get("/get", async (request, response) => {
         let techArray = await db.collection("technologies").find().sort("name",1).toArray();
         let coursesArray = await db.collection("courses").find().sort("code",1).toArray();
         let json = { "technologies": techArray ,"courses": coursesArray};
+        //let json = { "technologies": [] ,"courses": []};
 
         // set RESTFul status codes
         response.status(200);

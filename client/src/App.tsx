@@ -59,7 +59,7 @@ function App() {
       <div className="font-bold text-xl pb-2.5">_Technology Roster Admin</div>
 
       {/* if there is no documents in the database */}
-      {(courses.length > 0 && technologies.length > 0) ?
+      {/* {(courses.length > 0 || technologies.length > 0) ? */}
       <Routes>
         <Route
           path="/"
@@ -125,8 +125,8 @@ function App() {
         />
 
       </Routes>
-      : <div> There are no technologies in the database </div>
-      }
+      {/* : <div> There are no technologies in the database </div>
+      } */}
 
 
 
