@@ -21,7 +21,7 @@ const List = ({technologies, courses}:ListComponentProps) => {
                                     {/* <a href="http://www.seanmorrow.ca" className="text-accent font-bold hover:underline">{data.name}</a> */}
                                     <Link to={`/editTechnology/${data._id}`}><i className="fas fa-pencil content__button pr-2 text-xl hover:text-accent"></i></Link>
                                     <Link to={`/deleteTechnology/${data._id}`}><i className="fas fa-trash content__button pr-2 text-xl hover:text-accent"></i></Link>
-                                    <div className="text-accent font-bold break-all max-w-xs">{data.name}</div>
+                                    <div className="text-accent font-bold break-words max-w-md">{data.name}</div>
                                 </div>
                             )}
                         </div>
@@ -38,7 +38,7 @@ const List = ({technologies, courses}:ListComponentProps) => {
                                 <div key={n} className="pb-2 flex flex-row flex-nowrap">
                                     <Link to={`/editCourse/${data._id}`}><i className="fas fa-pencil content__button pr-2 text-xl hover:text-accent"></i></Link>
                                     <Link to={`/deleteCourse/${data._id}`}><i className="fas fa-trash content__button pr-2 text-xl hover:text-accent"></i></Link>
-                                    <div className="text-accent font-bold break-all max-w-xs">{data.code} {data.name}</div>
+                                    <div className="text-accent font-bold break-words max-w-md">{data.code} {data.name}</div>
                                 </div>
                             )}
                         </div>
