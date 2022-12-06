@@ -17,7 +17,7 @@ const List = ({technologies, courses}:ListComponentProps) => {
 
                             {technologies.map((data:Technology, n:number)=>
 
-                                <div key={n} className="pb-2 flex flex-row flex-nowrap w-[100px]">
+                                <div key={n} className="pb-2 flex flex-row flex-nowrap">
                                     {/* <a href="http://www.seanmorrow.ca" className="text-accent font-bold hover:underline">{data.name}</a> */}
                                     <Link to={`/editTechnology/${data._id}`}><i className="fas fa-pencil content__button pr-2 text-xl hover:text-accent"></i></Link>
                                     <Link to={`/deleteTechnology/${data._id}`}><i className="fas fa-trash content__button pr-2 text-xl hover:text-accent"></i></Link>
@@ -35,10 +35,10 @@ const List = ({technologies, courses}:ListComponentProps) => {
                             <Link to={`/addCourse`}><i className="fas fa-plus content__button pr-2 pb-2 text-xl hover:text-accent"></i></Link>
 
                             {courses.map((data:Course, n:number)=>
-                                <div key={n} className="pb-2 flex flex-row flex-nowrap w-[100px]">
+                                <div key={n} className="pb-2 flex flex-row flex-nowrap">
                                     <Link to={`/editCourse/${data._id}`}><i className="fas fa-pencil content__button pr-2 text-xl hover:text-accent"></i></Link>
                                     <Link to={`/deleteCourse/${data._id}`}><i className="fas fa-trash content__button pr-2 text-xl hover:text-accent"></i></Link>
-                                    <div className="text-accent font-bold break-words ">{data.code} {data.name}</div>
+                                    <div className="text-accent font-bold break-words max-w-md">{data.code} {data.name}</div>
                                 </div>
                             )}
                         </div>
