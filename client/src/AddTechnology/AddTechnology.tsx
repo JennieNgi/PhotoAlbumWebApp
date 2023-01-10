@@ -8,8 +8,8 @@ import $ from 'jquery';
 
 const AddTechnology = ({courses,onResponse,onError,RETREIVE_SCRIPT,setLoading}:EditCourseComponentProps) => {
 
-    //const ADD_SCRIPT_TECHNOLOGIES:string = "http://localhost/addTechnology";
-    const ADD_SCRIPT_TECHNOLOGIES:string = "/addTechnology";
+    const ADD_SCRIPT_TECHNOLOGIES:string = "http://localhost/addTechnology";
+    //const ADD_SCRIPT_TECHNOLOGIES:string = "/addTechnology";
     
     let courseList:TechCourse[] = [];
 

@@ -11,10 +11,10 @@ const DeleteCourse = ({courses,onResponse,onError,RETREIVE_SCRIPT,setLoading}:Ed
 
     let course:(Course | undefined) = courses.find(item => item._id === id);
 
-    // const DELETE_SCRIPT_COURSES:string = "http://localhost/deleteCourse";
-    // const DELETE_SCRIPT_TECHNOLOGIES:string = "http://localhost/deleteTechnologyCourse";
-    const DELETE_SCRIPT_COURSES:string = "/deleteCourse";
-    const DELETE_SCRIPT_TECHNOLOGIES:string = "/deleteTechnologyCourse";
+    const DELETE_SCRIPT_COURSES:string = "http://localhost/deleteCourse";
+    const DELETE_SCRIPT_TECHNOLOGIES:string = "http://localhost/deleteTechnologyCourse";
+    // const DELETE_SCRIPT_COURSES:string = "/deleteCourse";
+    // const DELETE_SCRIPT_TECHNOLOGIES:string = "/deleteTechnologyCourse";
 
     function onSubmitResponse(responseText:any) {
         getJSONData(RETREIVE_SCRIPT, onResponse, onError);

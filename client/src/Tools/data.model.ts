@@ -40,6 +40,7 @@ export interface EditCourseComponentProps {
     RETREIVE_SCRIPT:string;
     setLoading: Function;
 }
+
 export interface DeleteTechnologyComponentProps {
     technologies:Technology[];
     onResponse:Function;
