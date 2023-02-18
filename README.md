@@ -18,7 +18,6 @@ This will start both the Product Review Web App in your browser.
 
 ## Client-Side Features
 The web application includes the following features:
-
 - A photo album with thumbnail images and captions
 - The ability to view a larger version of each photo by clicking on it
 - The ability to add comments to each photo
@@ -27,7 +26,7 @@ The web application includes the following features:
 
 ## RESTful Web API
 The Web API includes the following endpoints:
-- - GET /photos: Returns a JSON array of all photos in the photo album, including their comments. The photo ID field is called _id in the JSON.
+- GET /photos: Returns a JSON array of all photos in the photo album, including their comments. The photo ID field is called _id in the JSON.
 - POST /comments: Adds a new comment to a photo. Expects a JSON object with the following fields: photoId (string), author (string), and comment (string).
 
 ## Technologies Used
@@ -36,3 +35,6 @@ The Web API includes the following endpoints:
 - React: A JavaScript library used to build the client-side photo album.
 - Node.js: A JavaScript runtime used to run the Web API.
 - Bootstrap: A CSS library used to style the photo album.
+
+## Author
+Jenny Ngi
