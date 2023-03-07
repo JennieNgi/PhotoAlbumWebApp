@@ -1,3 +1,4 @@
+![photoalbum](https://user-images.githubusercontent.com/75710628/223285665-3c1bc9cd-4a92-4088-9321-ba17d4975981.gif)
 # Photo Album Web App
 This is a web application that displays a photo album and allows users to add comments to photos. It has been built using the MERN (MongoDB, Express, React, Node.js) stack and a custom Web API. The photo album data is stored in a MongoDB database and accessed through the Web API.
 
